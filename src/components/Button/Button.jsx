@@ -11,22 +11,23 @@ const initialState = {
 
 const Button = () => {
   const reducer = (state, action) => {
-    state.clickCount = state.clickCount + 1;
-    state.color = "green";
+    let updatedState = { ...state };
+    updatedState.clickCount = updatedState.clickCount + 1;
+    updatedState.color = "green";
     if (action.type === "increment") {
-      state.count = state.count + 1;
-      state.lastClickColorIncrement = "blue";
-      state.lastClickColorDecrement = "";
+      updatedState.count = updatedState.count + 1;
+      updatedState.lastClickColorIncrement = "blue";
+      updatedState.lastClickColorDecrement = "";
     } else if (action.type === "decrement") {
-      state.count = state.count - 1;
-      state.lastClickColorIncrement = "";
-      state.lastClickColorDecrement = "blue";
+      updatedState.count = updatedState.count - 1;
+      updatedState.lastClickColorIncrement = "";
+      updatedState.lastClickColorDecrement = "blue";
     }
 
-    if (state.count < 0) {
-      state.color = "red";
+    if (updatedState.count < 0) {
+      updatedState.color = "red";
     }
-    return { ...state };
+    return { ...updatedState };
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
