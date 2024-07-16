@@ -1,12 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
-import MyButton from "./components/MyButton";
+import Main from "./components/Main/Main";
 
 function App() {
   return (
     <div className="App">
       <div>
-        <MyButton />
+        <Main />
       </div>
     </div>
   );
