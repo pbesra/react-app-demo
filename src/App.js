@@ -1,14 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Main from "./components/Main/Main";
+import { Provider } from "react-redux";
+import store from "./reduxStore/store";
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <Main />
+    <Provider store={store}>
+      <div className="App">
+        <div>
+          <Main />
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 
