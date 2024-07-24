@@ -1,16 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { buyCakeAction, returnCakeAction } from "../../reduxStore";
-import Main from "../Main/Main";
 
-const CakeButton = (props) => {
+const CakeButton = ({
+  numCakes,
+  buyCakeAction,
+  returnCakeAction,
+  messageType,
+}) => {
   return (
     <>
-      <div>Number of cakes - {props.numCakes}</div>
-      <button onClick={props.buyCakeAction}>buy cake</button>
-      <button onClick={props.returnCakeAction}>return cake</button>
-      {props.messageType?.length > 0 && (
-        <div style={{ color: "red" }}>{props.messageType}</div>
+      <div>Number of cakes - {numCakes}</div>
+      <button onClick={buyCakeAction}>buy cake</button>
+      <button onClick={returnCakeAction}>return cake</button>
+      {messageType?.length > 0 && (
+        <div style={{ color: "red" }}>{messageType}</div>
       )}
     </>
   );
