@@ -6,22 +6,24 @@ const initialState = {
 };
 
 const cakeReducer = (state = initialState, action) => {
-  let updatedState = { ...state, messageType: "" };
+  let updatedState = { ...state };
   if (action.type === BUY_CAKE) {
     updatedState = {
       ...updatedState,
       numCakes: updatedState.numCakes + 1,
+      messageType: "",
     };
   } else if (action.type === RETURN_CAKE) {
-    if (updatedState.numCakes <= 0) {
-      updatedState = {
-        ...updatedState,
-        numCakes: 0,
-        messageType: "No cakes to return",
-      };
-    } else {
+    if (updatedState.numCakes > 0) {
       updatedState = { ...updatedState, numCakes: updatedState.numCakes - 1 };
     }
+  }
+  if (updatedState.numCakes <= 0) {
+    updatedState = {
+      ...updatedState,
+      numCakes: 0,
+      messageType: "No cakes to return",
+    };
   }
 
   return {
