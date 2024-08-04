@@ -1,11 +1,12 @@
-import Button from "../Button/Button";
-import CakeButton from "../CakeButton/CakeButton";
 import HookCakeButton from "../CakeButton/HookCakeButton";
+import IceCreamButton from "../IceCreamButton/IceCreamButton";
 
 const Main = () => {
   return (
     <>
       <HookCakeButton />
+      <br />
+      <IceCreamButton />
     </>
   );
 };
